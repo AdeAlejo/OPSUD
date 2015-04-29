@@ -6,10 +6,16 @@
 
     <navigation-rule>
         <from-view-id>/autorizarPagos/autorizarSolicitudPagoList.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{AutorizarSolicitudPagoList.consultar()}</from-action>
-            <to-view-id>/autorizarPagos/autorizarSolicitudPagoEdit.xhtml</to-view-id>
-        </navigation-case>
+        
+    <navigation-case>
+        <from-outcome>valido</from-outcome>
+        <from-action>
+            #{AutorizarSolicitudPagoList.consultar()}
+        </from-action>
+        <to-view-id>/autorizarPagos/autorizarSolicitudPagoEdit.xhtml</to-view-id>
+    </navigation-case>        
+        
     </navigation-rule>
 
 </faces-config>
+
