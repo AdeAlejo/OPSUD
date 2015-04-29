@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/templates/default.xhtml">
+
+
+<ui:define name="content">
+
+
+<h:form>
+
+    
+        <table>
+            <tr>
+                <td><label>Nombre</label></td>
+                <td><input type="text" name="name" value=""></input></td>
+            </tr>
+            <tr>
+                <td><label>Documento</label></td>
+                <td><input type="text" name="document" value=""></input></td>
+            </tr>
+            <tr>
+                <td><label>Valor del pago</label></td>
+                <td><input type="text" name="payment_value" value=""></input></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <h2>Lista de verificaci&oacute;n</h2>
+                <ul>
+                    <li>
+                    <input type="checkbox" name="id_document"/>
+                    <label>Documento de identidad</label>
+                    </li>
+                    <li>                    
+                    <input type="checkbox" name="social_security"/>
+                    <label>Seguridad social</label>
+                    </li>
+                    <li>                    
+                    <input type="checkbox" name="account"/>
+                    <label>Cuenta bancaria</label>
+                    </li>
+                    <li>                    
+                    <input type="checkbox" name="management_report"/>
+                    <label>informe de gesti&oacute;n</label>
+                    </li>
+                    <li>                    
+                    <input type="checkbox" name="payment_period"/>
+                    <label>Cumple con periodo de pago</label>
+                    </li>
+                    <li>                    
+                    <input type="checkbox" name="digital_firm"/>
+                    <label>Firma digital</label>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+
+                    <h:commandButton value="Consulta"
+                        action="#{AutorizarSolicitudPagoList.consultar()}" >
+                    </h:commandButton>
+                        
+                </td>        
+            </tr>
+        </table>
+    
+    
+
+
+
+</h:form>
+
+
+
+</ui:define>
+
+
+</ui:composition>

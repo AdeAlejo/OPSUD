@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">  
+    
+    <h:head>
+        <title>Página de confirmación</title>
+        <!--<h:outputStylesheet library="css" name="estilos.css"/>-->
+    </h:head>
+    
+    <h:body>
+        <h2>Página de confirmación</h2>
+        
+            <h:panelGrid columns="2">
+                <h:outputLabel value="EPS:" for="eps"/>
+                <h:outputText value="#{registration.eps}"></h:outputText>
+                <h:outputLabel value="Pension:" for="pension"/>
+                <h:outputText value="#{registration.pension}"></h:outputText>
+                <h:outputLabel value="Fecha inicial:" for="ini_fecha"/>
+                <h:outputText value="#{registration.ini_fecha}"></h:outputText>
+                <h:outputLabel value="Fecha final:" for="fin_fecha"/>
+                <h:outputText value="#{registration.fin_fecha}"></h:outputText>
+                <h:outputLabel value="Cedula:" for="cedula"/>
+                <h:outputText value="#{registration.cedula}"></h:outputText>
+                <h:outputLabel value="Nombre:" for="nombre"/>
+                <h:outputText value="#{registration.nombre}"></h:outputText>
+                <h:outputLabel value="Cuenta bancaria:" for="cuenta"/>
+                <h:outputText value="#{registration.cuenta}"></h:outputText>
+                <h:outputLabel value="Informe:" for="informe"/>
+                <h:outputText value="#{registration.informe}"></h:outputText>
+                
+            </h:panelGrid>
+    </h:body>
+    
+    <!---
+    <h:body>
+        
+            Página de confirmación
+        
+            <h:panelGrid columns="2">
+                <h:outputText value="Saludo: "/>
+                <h:outputText  value="#{RegistrationBean.saludo}">
+                <h:outputText value="Nombre: "/>
+                <h:outputText  value="#{RegistrationBean.nombre}">
+                <h:outputText value="Apellido: "/>
+                <h:outputText  value="#{RegistrationBean.apellido}">
+                <h:outputText value="Edad: "/>
+                <h:outputText  value="#{RegistrationBean.edad}">
+                <h:outputText value="Email: "/>
+                <h:outputText  value="#{RregistrationBean.email}">
+            </h:panelGrid>
+    </h:body>
+    
+    -->
+</html>

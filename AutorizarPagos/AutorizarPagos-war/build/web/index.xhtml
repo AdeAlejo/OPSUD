@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+    
+    
+    <h:head>
+        <title>Registro de pago</title>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+        <!--<h:outputScript library="javascript" name='archivo.js'/>-->
+    </h:head>
+    <h:body>
+        <h3>Registro solicitud de pago</h3>
+        
+        <h:form enctype="multipart/form-data">
+            <h:panelGrid columns="3"
+                         columnClasses="alinder,alinizq">
+                         
+                <h:outputLabel value="Pago EPS: " for="eps"/>
+                <h:inputFile id="eps" required="true" value="#{registration.eps}"></h:inputFile>
+                <h:message for="eps"/>
+                
+                <h:outputLabel value="Pago Pension: " for="pension"/>
+                <h:inputFile id="pension" required="true" value="#{registration.pension}"></h:inputFile>
+                <h:message for="pension"/>
+                
+                <h:outputLabel value="Fecha inicial: " for="ini_fecha"/>
+                <h:inputText id="ini_fecha" required="true" value="#{registration.ini_fecha}"></h:inputText>
+                <h:message for="ini_fecha"/>
+                
+                <h:outputLabel value="Fecha final: " for="fin_fecha"/>
+                <h:inputText id="fin_fecha" required="true" value="#{registration.fin_fecha}"></h:inputText>
+                <h:message for="fin_fecha"/>
+                
+                <h:outputLabel value="Cedula: " for="cedula"/>
+                <h:inputText id="cedula" label="cedula"
+                             required="true"
+                             value="#{registration.cedula}"/>
+                <h:message for="cedula" />
+                
+                <h:outputLabel value="Nombre: " for="nombre"/>
+                <h:inputText id="nombre" label="Nombre"
+                             required="true"
+                             value="#{registration.nombre}"/>
+                <h:message for="nombre" />
+                
+                <h:outputLabel value="Cuenta bancaria: " for="cuenta"/>
+                <h:inputText id="cuenta" label="cuenta"
+                             required="true"
+                             value="#{registration.cuenta}"/>
+                <h:message for="cuenta" />
+                
+                <h:outputLabel value="Informe de gestion: " for="informe"/>
+                <h:inputFile id="informe" required="true" value="#{registration.informe}"></h:inputFile>
+                <h:message for="informe"/>
+                <h:commandButton value="Registrar" action="confirmacion"></h:commandButton>
+                                 
+             </h:panelGrid>
+        </h:form>        
+    </h:body>
+</html>
+
