@@ -6,6 +6,7 @@
 package com.udistrital.ops.modelo.pagos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -79,6 +80,10 @@ public class SolicitudPago implements Serializable {
     private String sdpUsuarioModificacion;    
     
     
+    @Column(name = "sdpValorSolicitud")
+    private BigDecimal valorSolicitud = BigDecimal.ZERO;
+
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Contratista sdpContratistaempCed;
 
@@ -170,6 +175,16 @@ public class SolicitudPago implements Serializable {
 	public void setSdpContratistaempCed(Contratista sdpContratistaempCed) {
 		this.sdpContratistaempCed = sdpContratistaempCed;
 	}
+        
+        
+    public BigDecimal getValorSolicitud() {
+        return valorSolicitud;
+    }
+
+    public void setValorSolicitud(BigDecimal valorSolicitud) {
+        this.valorSolicitud = valorSolicitud;
+    }
+            
 
 	@Override
     public int hashCode() {

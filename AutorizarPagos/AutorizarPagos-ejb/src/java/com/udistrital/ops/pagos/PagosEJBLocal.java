@@ -17,5 +17,8 @@ public interface PagosEJBLocal {
     
     
     public Contratista obtenerContratista(String identificacion);
+    
+    
+    public SolicitudPago obtenerSolicitudPendiente(Contratista contratista);
 
 }

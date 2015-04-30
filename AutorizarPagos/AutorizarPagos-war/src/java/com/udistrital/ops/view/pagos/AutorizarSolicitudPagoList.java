@@ -1,6 +1,7 @@
 package com.udistrital.ops.view.pagos;
 
 import com.udistrital.ops.modelo.pagos.Contratista;
+import com.udistrital.ops.modelo.pagos.SolicitudPago;
 import com.udistrital.ops.pagos.PagosEJBLocal;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
@@ -23,29 +24,28 @@ public class AutorizarSolicitudPagoList implements Serializable {
     private PagosEJBLocal pagosEJBLocal;
     
     
-//    private Contratista contratista = new Contratista();
+    private Contratista contratista = new Contratista();
 
-    public PagosEJBLocal getPagosEJBLocal() {
-        return pagosEJBLocal;
-    }
-
-    public void setPagosEJBLocal(PagosEJBLocal pagosEJBLocal) {
-        this.pagosEJBLocal = pagosEJBLocal;
-    }
+    private SolicitudPago solicitudPendiente = new SolicitudPago();
 
 
     
     public AutorizarSolicitudPagoList(){
-        
+
     }
     
     @PostConstruct
     public void init(){
 //        contratista = pagosEJBLocal.obtenerContratista("");
+        System.out.println("DEspues de inicializado "+pagosEJBLocal);
+        contratista = pagosEJBLocal.obtenerContratista("");
+        
+         solicitudPendiente = pagosEJBLocal.obtenerSolicitudPendiente(contratista);
+         
     }
     
     public String consultar() {
-
+        
         HttpServletRequest origRequest = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         
         
@@ -114,13 +114,20 @@ public class AutorizarSolicitudPagoList implements Serializable {
     }
 
     
-//    public Contratista getContratista() {
-//        return contratista;
-//    }
-//
-//    public void setContratista(Contratista contratista) {
-//        this.contratista = contratista;
-//    }    
-//    
+    public Contratista getContratista() {
+        return contratista;
+    }
+
+    public void setContratista(Contratista contratista) {
+        this.contratista = contratista;
+    }    
     
+        public SolicitudPago getSolicitudPendiente() {
+        return solicitudPendiente;
+    }
+
+    public void setSolicitudPendiente(SolicitudPago solicitudPendiente) {
+        this.solicitudPendiente = solicitudPendiente;
+    }
+
 }

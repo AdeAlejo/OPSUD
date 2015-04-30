@@ -4,11 +4,11 @@ import com.udistrital.ops.modelo.pagos.Contratista;
 import com.udistrital.ops.modelo.pagos.EstadosSolicitud;
 import com.udistrital.ops.modelo.pagos.SolicitudPago;
 import java.util.List;
-import javax.annotation.Resource;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
 
 /**
  * Session Bean implementation class PagosEJB
@@ -17,8 +17,9 @@ import javax.persistence.PersistenceUnit;
 @LocalBean
 public class PagosEJB implements PagosEJBLocal {
 
-    @PersistenceUnit
-    private EntityManager em;
+
+    @PersistenceContext(unitName = "AutorizarPagos-ejbPU")
+    private EntityManager em;      
     
     /**
      * Default constructor. 
@@ -49,6 +50,21 @@ public class PagosEJB implements PagosEJBLocal {
     public void autorizarSolicitudPago(SolicitudPago solicitudPago) {
         
         
+
+    }
+    
+    
+    public SolicitudPago obtenerSolicitudPendiente(Contratista contratista) {
+        
+        try {
+            return (SolicitudPago)em.createQuery("Select s from SolicitudPago s Where s.sdpEstadoSolicitud = :estado "
+                        + "And s.sdpContratistaempCed = :contratista ")
+                        .setParameter("estado",EstadosSolicitud.Pendiente.estado)
+                        .setParameter("contratista",contratista)
+                        .getSingleResult();            
+        } catch(NoResultException nre) {
+            return new SolicitudPago();
+        }
 
     }
 
