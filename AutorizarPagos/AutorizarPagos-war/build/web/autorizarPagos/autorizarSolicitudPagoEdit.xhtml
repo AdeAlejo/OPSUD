@@ -38,8 +38,12 @@
                                         oncomplete="alert('El pago ha sido realizado')">
                        </p:commandButton>
                </td>
-               <td><input type="submit" value="Rechazar pago" onclick="alert('El pago ha sido rechazado')"/>
-               
+               <td>
+                       <p:commandButton value="Rechazar pago"
+                                        ajax="true" 
+                                        action="#{AutorizarSolicitudPagoList.autorizar()}"
+                                        oncomplete="alert('El pago ha sido rechazado')">
+                       </p:commandButton>                   
                    
                </td>
            </tr>
