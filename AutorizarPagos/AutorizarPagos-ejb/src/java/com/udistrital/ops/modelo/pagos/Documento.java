@@ -51,6 +51,9 @@ public abstract class Documento implements Serializable
     @NotNull
     @Column(name = "tipo")
     private String tipo;
+    
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
+    private SolicitudPago solicitudPago;
 
     // Constructor
     public Documento(String archivo, String firma, String tipo) {
@@ -87,6 +90,14 @@ public abstract class Documento implements Serializable
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    
+    public SolicitudPago getSolicitudPago() {
+        return solicitudPago;
+    }
+
+    public void setSolicitudPago(SolicitudPago solicitudPago) {
+        this.solicitudPago = solicitudPago;
     }
 
     @Override
