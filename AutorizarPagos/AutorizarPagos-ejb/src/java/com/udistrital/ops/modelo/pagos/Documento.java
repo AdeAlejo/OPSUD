@@ -42,20 +42,18 @@ public abstract class Documento implements Serializable
     @Basic(optional = false)
     @NotNull
     @Column(name = "archivo")
-    private Byte archivo;
+    private String archivo;
     @Basic(optional = false)
     @NotNull
     @Column(name = "firma")
-    private Byte firma;
+    private String firma;
     @Basic(optional = false)
     @NotNull
     @Column(name = "tipo")
     private String tipo;
-    @Basic(optional = false)
-    @NotNull
-    
+
     // Constructor
-    public Documento(Byte archivo, Byte firma, String tipo) {
+    public Documento(String archivo, String firma, String tipo) {
         this.archivo = archivo;
         this.firma = firma;
         this.tipo = tipo;
@@ -67,19 +65,19 @@ public abstract class Documento implements Serializable
        return new FirmaDigital();    
     }
     
-    public Byte getArchivo() {
+    public String getArchivo() {
         return archivo;
     }
 
-    public void setArchivo(Byte archivo) {
+    public void setArchivo(String archivo) {
         this.archivo = archivo;
     }
 
-    public Byte getFirma() {
+    public String getFirma() {
         return firma;
     }
 
-    public void setFirma(Byte firma) {
+    public void setFirma(String firma) {
         this.firma = firma;
     }
 
