@@ -30,7 +30,6 @@ public class ContratoFacade extends AbstractFacade<Contrato> implements Contrato
         return find(id);
     }
     
-    
-    
+
     
 }

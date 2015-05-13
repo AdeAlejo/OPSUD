@@ -84,8 +84,14 @@ public class SolicitudPago implements Serializable {
     private BigDecimal valorSolicitud = BigDecimal.ZERO;
 
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     private Contratista sdpContratistaempCed;
+    
+    
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
+    private PeriodoPago sdpPeriodoPago;
+
+
 
     public SolicitudPago() {
     }
@@ -184,7 +190,15 @@ public class SolicitudPago implements Serializable {
     public void setValorSolicitud(BigDecimal valorSolicitud) {
         this.valorSolicitud = valorSolicitud;
     }
-            
+    
+    public PeriodoPago getSdpPeriodoPago() {
+        return sdpPeriodoPago;
+    }
+
+    public void setSdpPeriodoPago(PeriodoPago sdpPeriodoPago) {
+        this.sdpPeriodoPago = sdpPeriodoPago;
+    }
+    
 
 	@Override
     public int hashCode() {
